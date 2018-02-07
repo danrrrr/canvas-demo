@@ -9,7 +9,7 @@
         #canvas {
             display: block;
             background: #ccc;
-
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -74,12 +74,7 @@
             var snow = {};
             for(var i = 0; i < snows.length; i++) {
                 snow = snows[i];
-                if(snow.y < snow.clientY) {
-                    snow.y += snow.vy;
-                    snow.x += snow.vx;
-                }else {
-                    snow.create();
-                }
+                snow.falling();
             }
         }
 
@@ -93,7 +88,6 @@
                 
             }
             falling();
-            ctx.closePath();
        }
     setInterval(draw, 10);
         
